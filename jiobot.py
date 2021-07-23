@@ -22,8 +22,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 def main():
-    r = redis.from_url(os.environ.get("REDIS_URL"))
     
+
     # Setting up their polling stuff
     updater = Updater(token=bot_token, use_context=True)
     dispatcher = updater.dispatcher
