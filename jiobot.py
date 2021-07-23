@@ -346,7 +346,7 @@ def confirm_finalise_jio(update, context):
 
 
 def main():
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url("redis://:p60279a040c0e40174a032b1bb0b2ff68d776cdbf2c0a066e313e2d08f6827a2e@ec2-54-164-11-40.compute-1.amazonaws.com:23859")
 
     # Setting up their polling stuff
     updater = Updater(token=bot_token, use_context=True)
