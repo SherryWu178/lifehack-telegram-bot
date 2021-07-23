@@ -66,9 +66,7 @@ def main():
 
     updater.bot.setWebhook('https://floating-waters-24425.herokuapp.com/' + bot_token)
 
-    updater.idle()
-
-        
+    updater.idle() 
 
 if __name__ == '__main__':
     main()
