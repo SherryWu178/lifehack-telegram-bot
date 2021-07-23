@@ -2,8 +2,7 @@ from functions import *
 import os
 import redis
 
-print(os.environ.get("REDIS_URL"))
-r = redis.from_url(os.environ.get("REDIS_URL"))
+
 
 # r = redis.Redis(host='localhost', port=6379)
 
@@ -23,6 +22,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 def main():
+    r = redis.from_url(os.environ.get("REDIS_URL"))
+    
     # Setting up their polling stuff
     updater = Updater(token=bot_token, use_context=True)
     dispatcher = updater.dispatcher
