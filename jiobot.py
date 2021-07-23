@@ -37,7 +37,7 @@ PORT = int(os.environ.get('PORT', 5000))
 
 # Setting up our logger
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+                    level=logging.DEBUG)
 
 
 def get_cat_fact():
