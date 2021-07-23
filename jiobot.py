@@ -1,5 +1,5 @@
 from functions import *
-
+import os
 import redis
 r = redis.Redis(host='localhost', port=6379)
 
