@@ -67,8 +67,8 @@ def start(update, context):
 
 keyboard = [
     [
-        InlineKeyboardButton("Button 1", callback_data='1'),
-        InlineKeyboardButton("Button 2", callback_data='2'),
+        InlineKeyboardButton("Button 1", switch_inline_query_current_chat='/add '),
+        InlineKeyboardButton("Button 2", switch_inline_query_current_chat='/remove '),
     ]
 ]
 
