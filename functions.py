@@ -1,6 +1,7 @@
-import redis
 from util import *
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton, ParseMode 
+import os
+import redis
 
 """
 Terminologies:
