@@ -22,6 +22,7 @@
 # (the same one as you've created and used just now!)
 import logging
 import requests
+import os
 
 from telegram.ext import MessageHandler, Filters
 from telegram.ext import CommandHandler
