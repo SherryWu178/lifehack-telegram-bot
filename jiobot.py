@@ -27,7 +27,7 @@ import os
 from telegram.ext import MessageHandler, Filters
 from telegram.ext import CommandHandler
 from telegram.ext import Updater
-bot_token = "1892557011:AAFd_H0RKCLvZdIc9SHknIGH_ofi0q3W3Xc"
+bot_token = "1901886861:AAHA8pU8d6pbiBvbjiQm7d8dxCyIU1sMWU0"
 PORT = int(os.environ.get('PORT', 5000))
 
 # Importing python-telegram-bot's library functions
