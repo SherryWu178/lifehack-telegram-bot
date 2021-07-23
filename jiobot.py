@@ -8,6 +8,9 @@ import requests
 from telegram.ext import MessageHandler, Filters
 from telegram.ext import CommandHandler
 from telegram.ext import Updater, CallbackQueryHandler, CallbackContext
+from util import *
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton, ParseMode 
+
 
 bot_token = "1901886861:AAHA8pU8d6pbiBvbjiQm7d8dxCyIU1sMWU0"
 PORT = int(os.environ.get('PORT', 5000))
@@ -15,10 +18,7 @@ PORT = int(os.environ.get('PORT', 5000))
 # Setting up our logger
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
-from util import *
-from telegram import InlineKeyboardMarkup, InlineKeyboardButton, ParseMode 
-import os
-import redis
+
 
 """
 Terminologies:
