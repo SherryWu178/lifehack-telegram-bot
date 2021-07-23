@@ -27,7 +27,7 @@ item [hmset]
 
 """
 
-r = redis.from_url(os.environ.get("REDIS_URL"))
+
 
 def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
