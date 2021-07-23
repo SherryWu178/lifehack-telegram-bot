@@ -2,7 +2,9 @@ from functions import *
 import os
 import redis
 
+print(os.environ.get("REDIS_URL"))
 r = redis.from_url(os.environ.get("REDIS_URL"))
+
 # r = redis.Redis(host='localhost', port=6379)
 
 import logging
