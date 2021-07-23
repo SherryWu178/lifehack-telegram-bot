@@ -89,32 +89,38 @@ def caps(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
 
-# Create and add command handlers
-start_handler = CommandHandler('start', start)
-dispatcher.add_handler(start_handler)
+def main():
+    # Create and add command handlers
+    start_handler = CommandHandler('start', start)
+    dispatcher.add_handler(start_handler)
 
-cat_handler = CommandHandler('cat', cat_asdf)
-dispatcher.add_handler(cat_handler)
+    cat_handler = CommandHandler('cat', cat_asdf)
+    dispatcher.add_handler(cat_handler)
 
-dog_handler = CommandHandler('dog', dog)
-dispatcher.add_handler(dog_handler)
+    dog_handler = CommandHandler('dog', dog)
+    dispatcher.add_handler(dog_handler)
 
-carpark_handler = CommandHandler('carpark', carpark)
-dispatcher.add_handler(carpark_handler)
+    carpark_handler = CommandHandler('carpark', carpark)
+    dispatcher.add_handler(carpark_handler)
 
-echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
-dispatcher.add_handler(echo_handler)
+    echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
+    dispatcher.add_handler(echo_handler)
 
-caps_handler = CommandHandler('caps', caps)
-dispatcher.add_handler(caps_handler)
+    caps_handler = CommandHandler('caps', caps)
+    dispatcher.add_handler(caps_handler)
 
-# updater.start_polling()
+    # updater.start_polling()
 
-# Start the Bot
-updater.start_webhook(listen="0.0.0.0",
-                      port=int(PORT),
-                      url_path=bot_token)
+    # Start the Bot
+    updater.start_webhook(listen="0.0.0.0",
+                        port=int(PORT),
+                        url_path=bot_token)
 
-updater.bot.setWebhook('https://floating-waters-24425.herokuapp.com/' + bot_token)
+    updater.bot.setWebhook('https://floating-waters-24425.herokuapp.com/' + bot_token)
 
-updater.idle()
+    updater.idle()
+
+        
+
+if __name__ == '__main__':
+    main()
