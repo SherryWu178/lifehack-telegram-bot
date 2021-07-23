@@ -27,6 +27,9 @@ import os
 from telegram.ext import MessageHandler, Filters
 from telegram.ext import CommandHandler
 from telegram.ext import Updater
+
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+
 bot_token = "1901886861:AAHA8pU8d6pbiBvbjiQm7d8dxCyIU1sMWU0"
 PORT = int(os.environ.get('PORT', 5000))
 
@@ -62,21 +65,24 @@ def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Hi! To start a jio, type '/start_jio'")
 
+keyboard = [
+    [
+        InlineKeyboardButton("Button 1", callback_data='1'),
+        InlineKeyboardButton("Button 2", callback_data='2'),
+    ]
+]
+
+reply_markup = InlineKeyboardMarkup(keyboard)
 
 def cat_asdf(update, context):
     context.bot.send_message(
-        chat_id=update.effective_chat.id, text=get_cat_fact())
+        chat_id=update.effective_chat.id, text=get_cat_fact(), reply_markup=True)
 
 
 def dog(update, context):
     context.bot.send_message(
         chat_id=update.effective_chat.id, text=get_dog_fact())
 
-
-def carpark(update, context):
-    carpark_code = context.args[0].upper()
-    context.bot.send_message(
-        chat_id=update.effective_chat.id, text=get_carpark_availability(carpark_code))
 
 
 def echo(update, context):
@@ -99,9 +105,6 @@ def main():
 
     dog_handler = CommandHandler('dog', dog)
     dispatcher.add_handler(dog_handler)
-
-    carpark_handler = CommandHandler('carpark', carpark)
-    dispatcher.add_handler(carpark_handler)
 
     echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
     dispatcher.add_handler(echo_handler)
