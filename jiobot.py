@@ -25,7 +25,7 @@ import requests
 import os
 
 from telegram.ext import MessageHandler, Filters
-from telegram.ext import CommandHandler
+from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram.ext import Updater
 
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
@@ -97,6 +97,9 @@ def caps(update, context):
 
 def main():
     # Create and add command handlers
+    callback_handler = CallbackQueryHandler(callback = dog, pattern=r'\w*')
+    dispatcher.add_handler(callback_handler)
+
     start_handler = CommandHandler('start', start)
     dispatcher.add_handler(start_handler)
 
