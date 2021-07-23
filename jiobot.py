@@ -67,8 +67,8 @@ def start(update, context):
 
 keyboard = [
     [
-        InlineKeyboardButton("Button 1", switch_inline_query_current_chat='/add '),
-        InlineKeyboardButton("Button 2", switch_inline_query_current_chat='/remove '),
+        InlineKeyboardButton("Button 1", switch_inline_query_current_chat='/add ', *kwargs={message_id: 12345}),
+        InlineKeyboardButton("Button 2", switch_inline_query_current_chat='/remove ', *kwargs={message_id: 12345}),
     ]
 ]
 
@@ -107,6 +107,12 @@ def main():
     dispatcher.add_handler(cat_handler)
 
     dog_handler = CommandHandler('dog', dog)
+    dispatcher.add_handler(dog_handler)
+
+    add_handler = CommandHandler('cat', cat_asdf)
+    dispatcher.add_handler(cat_handler)
+
+    remove_handler = CommandHandler('dog', dog)
     dispatcher.add_handler(dog_handler)
 
     echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
