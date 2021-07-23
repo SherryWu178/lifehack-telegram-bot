@@ -76,7 +76,7 @@ reply_markup = InlineKeyboardMarkup(keyboard)
 
 def cat_asdf(update, context):
     context.bot.send_message(
-        chat_id=update.effective_chat.id, text=get_cat_fact(), reply_markup=True)
+        chat_id=update.effective_chat.id, text=get_cat_fact(), reply_markup=reply_markup)
 
 
 def dog(update, context):
