@@ -27,6 +27,7 @@ from telegram.ext import MessageHandler, Filters
 from telegram.ext import CommandHandler
 from telegram.ext import Updater
 bot_token = "1892557011:AAFd_H0RKCLvZdIc9SHknIGH_ofi0q3W3Xc"
+PORT = int(os.environ.get('PORT', 5000))
 
 # Importing python-telegram-bot's library functions
 
@@ -59,8 +60,6 @@ dispatcher = updater.dispatcher
 def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Hi! To start a jio, type '/start_jio'")
-
-def 
 
 
 def cat_asdf(update, context):
