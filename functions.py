@@ -307,6 +307,7 @@ def finalise_jio(update, context):
     r.hmset(chat_id_meta_string, metadata)
 
 def cancel(update, context):
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
     message_id = int(r.hget(chat_id_meta_string, 'message_id'))
