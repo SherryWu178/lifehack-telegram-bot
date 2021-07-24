@@ -28,7 +28,7 @@ def get_user_id_string(user_id):
     return 'u' + str(user_id)
 
 def get_open_jio_name_string(jio_name):
-    return '<b>' + 'XD ' + jio_name + '</b>' + '\n\n'
+    return '<b>' + 'XD ' + str(jio_name) + '</b>' + '\n\n'
 
 def get_finalised_jio_name_string(jio_name):
-    return '<b>' + 'XD ' + jio_name + '</b> [finalised] \n' +"<i>Jio is finalised, indicate payment using '/paid'</i>\n\n"
+    return '<b>' + 'XD ' + str(jio_name) + '</b> [finalised] \n' +"<i>Jio is finalised, indicate payment using '/paid'</i>\n\n"
