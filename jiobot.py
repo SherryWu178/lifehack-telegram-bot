@@ -11,7 +11,7 @@ from telegram.ext import MessageHandler, Filters
 from telegram.ext import CommandHandler
 from telegram.ext import Updater, CallbackQueryHandler, CallbackContext
 
-bot_token = "1901886861:AAHA8pU8d6pbiBvbjiQm7d8dxCyIU1sMWU0"
+bot_token = "1843778002:AAFxOoXX7xWTubiMmULqkTlQ9U0267zHa4I"
 PORT = int(os.environ.get('PORT', 5000))
 
 # Setting up our logger
