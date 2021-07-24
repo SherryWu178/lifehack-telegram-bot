@@ -281,6 +281,11 @@ def finalise_jio(update, context):
     
     orders = r.hgetall(chat_id_item_string)
     metadata =  r.hgetall(chat_id_meta_string)
+
+    if metadata['finalised'] == 1:
+        context.bot.send_message(chat_id=chat_id,
+                                 text="The jio is already finalised.")
+        return
     
     if not orders:
         context.bot.send_message(chat_id=chat_id,
