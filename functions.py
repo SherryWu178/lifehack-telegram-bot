@@ -35,7 +35,7 @@ def start(update, context):
 
 # Create a new jio with a title
 def start_jio(update, context):
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -64,7 +64,7 @@ def start_jio(update, context):
     
 # Edit the title of the jio
 def edit_jio_title(update, context): 
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -100,7 +100,7 @@ def edit_jio_title(update, context):
 
 # Join a jio or update user's jio item      
 def join_jio(update, context):
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
     
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -144,7 +144,7 @@ def join_jio(update, context):
 
 # Quit a joined jio before it is finalised
 def quit_jio(update, context):   
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -184,7 +184,7 @@ def quit_jio(update, context):
 
 # Mark user's order as paid
 def paid(update, context):
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -241,7 +241,7 @@ def paid(update, context):
     
 # End a jio in the group
 def end_jio(update, context):
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -261,11 +261,11 @@ def end_jio(update, context):
     r.delete(chat_id_meta_string)
     r.delete(chat_id_item_string)
     context.bot.send_message(chat_id=update.effective_chat.id,
-                            text="Your current jio '" + jio_name + "' is terminated. See you next time!")
+                            text="Your current jio " + "is terminated. See you next time!")
 
 # Finalise the jio so that users can mark their orders as paid
 def finalise_jio(update, context):
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)
@@ -316,7 +316,7 @@ def cancel(update, context):
 
 # Confirmation to finalise jio, finalising a jio is irreversible
 def confirm_finalise_jio(update, context):
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
 
     arguments, user_id, user_name, chat_id = parse(update, context)
     chat_id_meta_string, chat_id_item_string, user_id_string = stringify_ids(chat_id, user_id)

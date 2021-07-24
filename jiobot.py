@@ -16,11 +16,11 @@ PORT = int(os.environ.get('PORT', 5000))
 
 # Setting up our logger
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+                    level=logging.DEBUG)
 
 
 def main():
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"), decode_responses=True)
     
     # Setting up their polling stuff
     updater = Updater(token=bot_token, use_context=True)
